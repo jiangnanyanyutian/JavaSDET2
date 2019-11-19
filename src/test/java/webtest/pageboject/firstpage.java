@@ -30,7 +30,7 @@ public class firstpage {
     public void logincookies(){
        // username.clear();
         golddata.click();
-            Reporter.log("frame测试",true);
+           // Reporter.log("frame测试",true);
     }
 
 
