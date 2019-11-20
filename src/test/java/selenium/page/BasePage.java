@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
-    public static RemoteWebDriver driver;
+    public static RemoteWebDriver driver;//不能被泄露要私有化
 
     public WebElement findElement(By by){
         return findElement(by, 5);
