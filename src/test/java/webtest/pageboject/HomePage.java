@@ -14,14 +14,14 @@ public class HomePage extends CommonPage {
 
     public HomePage login() {
         String URL = "https://work.weixin.qq.com";
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\zhicall\\AppData\\Local\\Google\\Chrome\\Application\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get(URL);
         driver.manage().window().maximize();
         driver.findElement(By.linkText("企业登录")).click();
         System.out.println(driver.manage().getCookies());
-        driver.manage().addCookie(new Cookie("wwrtx.refid", "25907885703424470"));
-        driver.manage().addCookie(new Cookie("wwrtx.sid", "vz8lc5ZbIh9dARjpPCqf0ZQzgGLlGuAsT4W4ovyK4wetsX6okoUIn_wAN-t_gbpJ"));
+        driver.manage().addCookie(new Cookie("wwrtx.refid", "25907885701910457"));
+        driver.manage().addCookie(new Cookie("wwrtx.sid", "vz8lc5ZbIh9dARjpPCqf0ZOW_X-Bb2T10ZOU9dcRY4f_1JTNXejtZ9NlHJN1bphD"));
         //填坑1，添加cookies之后刷新页面才能登陆，没有该语句登陆不成功
         driver.navigate().refresh();
         return this;

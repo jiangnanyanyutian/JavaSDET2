@@ -7,6 +7,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.*;
+
 public class BasePage {
     public static RemoteWebDriver driver;//不能被泄露要私有化
 
@@ -22,11 +24,11 @@ public class BasePage {
         return driver.findElement(by);
     }
     public void waitClickable(By by, int timeout){
-        new WebDriverWait(driver, timeout).until(ExpectedConditions.elementToBeClickable(by));
+        new WebDriverWait(driver, timeout).until(elementToBeClickable(by));
     }
     public void waitClickable(By by){
-        new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(by));
-        new WebDriverWait(driver, 3).until(ExpectedConditions.elementToBeClickable(by));
+        new WebDriverWait(driver, 3).until(visibilityOfElementLocated(by));
+        new WebDriverWait(driver, 3).until(elementToBeClickable(by));
 
     }
 

@@ -10,6 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.print.DocFlavor;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
+
 //封装元素查找方法
 public class CommonPage {
     public static RemoteWebDriver driver;
@@ -22,13 +25,13 @@ public class CommonPage {
 
     public void waituntilclick(By by, int timeout) {
 
-        new WebDriverWait(driver, timeout).until(ExpectedConditions.visibilityOfElementLocated(by));
-        new WebDriverWait(driver, timeout).until(ExpectedConditions.elementToBeClickable(by));
+        new WebDriverWait(driver, timeout).until(visibilityOfElementLocated(by));
+        new WebDriverWait(driver, timeout).until(elementToBeClickable(by));
     }
 
     public void waituntilvisiable(By by, int timeout) {
 
-        new WebDriverWait(driver, timeout).until(ExpectedConditions.visibilityOfElementLocated(by));
+        new WebDriverWait(driver, timeout).until(visibilityOfElementLocated(by));
            }
 
     //关闭浏览器
