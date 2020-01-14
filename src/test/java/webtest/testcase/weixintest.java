@@ -3,7 +3,9 @@ package webtest.testcase;
 import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import webtest.pageboject.BachLoadPage;
 import webtest.pageboject.HomePage;
+import webtest.pageboject.SendMassagePage;
 import webtest.pageboject.addressBookPage;
 
 import java.awt.*;
@@ -17,7 +19,12 @@ public class weixintest {
     public static String name;
     public static String accountID;
     public static String phone;
-
+    public static String menber;
+    public static String title;
+    public static String content;
+    public static String addtionURL;
+    public static String summary;
+    public static String author;
     private String js;
 
     //测试之前设置环境
@@ -25,9 +32,19 @@ public class weixintest {
     public static void setup() {
 
         homepage.login();
+        //设置添加成员信息
         name = "小燕子";
         accountID = "8833";
         phone = "13949135563";
+        //设置消息群发参数
+        menber="王启";
+        title="消息群发测试title";
+        content="你有新的快递，请注意查收，取件请凭取件码。";
+        addtionURL="C:\\Users\\Administrator\\Desktop\\54310245.jpg";
+        summary="消息概要summary";
+        author="tester";
+
+
     }
 
     //测试完成之后清理
@@ -56,6 +73,7 @@ public class weixintest {
     }
 
     @Test
+    //通过勾选删除
     public void checkboxdelete() {
 
         homepage.mennu_contact();
@@ -63,6 +81,24 @@ public class weixintest {
         addressBookPage.checkboxdelet();
     }
 
+    @Test
+    //上传图片
+    public void uploadfile() throws InterruptedException {
+        homepage.loadcontactbook();
+        BachLoadPage BachLoadPage = new BachLoadPage();
+        BachLoadPage.uploadfile("C:\\Users\\Administrator\\Desktop\\通讯录批量导入模板.xlsx");
+
+
+    }
+
+    @Test
+    //消息群发
+    public void sendmessage() throws InterruptedException {
+        homepage.groupmessagesend();
+        SendMassagePage sendMassagePage = new SendMassagePage();
+        sendMassagePage.sendmessage(menber, title, content, addtionURL, summary, author);
+
+    }
     //js运行测试
 //    @Test
 //    public void testjs() throws InterruptedException {

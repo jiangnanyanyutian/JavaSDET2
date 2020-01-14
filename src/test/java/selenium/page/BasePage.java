@@ -13,8 +13,12 @@ public class BasePage {
     public static RemoteWebDriver driver;//不能被泄露要私有化
 
     public WebElement findElement(By by){
+
+
         return findElement(by, 5);
     }
+
+
     public WebElement findElement(By by, int timeout){
         System.out.println(by);
         if(timeout>0) {
@@ -23,6 +27,8 @@ public class BasePage {
         }
         return driver.findElement(by);
     }
+
+
     public void waitClickable(By by, int timeout){
         new WebDriverWait(driver, timeout).until(elementToBeClickable(by));
     }

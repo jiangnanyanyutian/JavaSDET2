@@ -20,8 +20,8 @@ public class HomePage extends CommonPage {
         driver.manage().window().maximize();
         driver.findElement(By.linkText("企业登录")).click();
         System.out.println(driver.manage().getCookies());
-        driver.manage().addCookie(new Cookie("wwrtx.refid", "25907885701910457"));
-        driver.manage().addCookie(new Cookie("wwrtx.sid", "vz8lc5ZbIh9dARjpPCqf0ZOW_X-Bb2T10ZOU9dcRY4f_1JTNXejtZ9NlHJN1bphD"));
+        driver.manage().addCookie(new Cookie("wwrtx.refid", "2590788570442807"));
+        driver.manage().addCookie(new Cookie("wwrtx.sid", "vz8lc5ZbIh9dARjpPCqf0TGucP2mTHvqYYHJlRGzU88IUhjjQbi2ZNszh-8S95dN"));
         //填坑1，添加cookies之后刷新页面才能登陆，没有该语句登陆不成功
         driver.navigate().refresh();
         return this;
@@ -33,7 +33,7 @@ public class HomePage extends CommonPage {
         //填坑2，缺少等待，页面未加载完成去定位元素失败，必须加等待时间
         // new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(By.linkText("添加成员"))).click();
         driver.manage().timeouts().implicitlyWait(10L, TimeUnit.SECONDS);
-        waituntilclick(By.linkText("添加成员"),5);
+        waituntillocatedandclicked(By.linkText("添加成员"), 5);
         findElement(By.linkText("添加成员")).click();
 
 
@@ -49,16 +49,18 @@ public class HomePage extends CommonPage {
     }
 
     //导入通讯录按钮
-    public addressBookPage addressmanage() {
-
-        return new addressBookPage();
+    public BachLoadPage loadcontactbook() {
+        findElement(By.linkText("导入通讯录")).click();
+        //findElement(By.cssSelector(".index_service_cnt_item_title")).click();
+        return new BachLoadPage();
     }
 
 
     //消息群发按钮
     public SendMassagePage groupmessagesend() {
 
-
+        findElement(By.linkText("消息群发")).click();
+        //findElement(By.cssSelector(".index_service_cnt_item_title")).click();
         return new SendMassagePage();
 
     }
