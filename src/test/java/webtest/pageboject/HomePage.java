@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,14 +15,18 @@ public class HomePage extends CommonPage {
 
     public HomePage login() {
         String URL = "https://work.weixin.qq.com";
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setCapability("pageLoadStrategy", "normal");
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chromedriver.exe");
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(chromeOptions);
+       //很重要的一个隐式等待，全局的，创建一个driver对象就为改队形创建一个等待时间
+        driver.manage().timeouts().implicitlyWait(5L, TimeUnit.SECONDS);
         driver.get(URL);
         driver.manage().window().maximize();
         driver.findElement(By.linkText("企业登录")).click();
         System.out.println(driver.manage().getCookies());
         driver.manage().addCookie(new Cookie("wwrtx.refid", "2590788570442807"));
-        driver.manage().addCookie(new Cookie("wwrtx.sid", "vz8lc5ZbIh9dARjpPCqf0TGucP2mTHvqYYHJlRGzU88IUhjjQbi2ZNszh-8S95dN"));
+        driver.manage().addCookie(new Cookie("wwrtx.sid", "vz8lc5ZbIh9dARjpPCqf0aorho4rgKgAjrVovYo4tby_NZg6L4GRux_OCnIBBm3P"));
         //填坑1，添加cookies之后刷新页面才能登陆，没有该语句登陆不成功
         driver.navigate().refresh();
         return this;
@@ -58,7 +63,7 @@ public class HomePage extends CommonPage {
 
     //消息群发按钮
     public SendMassagePage groupmessagesend() {
-
+       // waituntilclicked(By.linkText("消息群发"), 5);
         findElement(By.linkText("消息群发")).click();
         //findElement(By.cssSelector(".index_service_cnt_item_title")).click();
         return new SendMassagePage();
