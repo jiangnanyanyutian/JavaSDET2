@@ -100,8 +100,9 @@ public class weixintest {
         sendMassagePage.confirmsend();
 
     }
-@Test
     //素材管理
+@Test
+
     public void sourcemanege() throws InterruptedException {
         homepage.sourcemanege();
         sourcelibrary sourcelibrary=new sourcelibrary();
@@ -109,6 +110,14 @@ public class weixintest {
         sourcelibrary.sourcelocate();
         sourcelibrary.sourcecontent(title, content, addtionURL, picture, summary, author);
         sourcelibrary.userselect();
+
+    }
+    //素材管理
+    @Test
+    public void deparmentmanege() throws InterruptedException {
+        homepage.contactbook();
+        manegedepartment manegedepartment=new manegedepartment();
+        manegedepartment.menbermanege();
 
     }
     //js运行测试
