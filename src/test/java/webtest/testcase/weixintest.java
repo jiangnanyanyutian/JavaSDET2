@@ -3,10 +3,7 @@ package webtest.testcase;
 import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import webtest.pageboject.BachLoadPage;
-import webtest.pageboject.HomePage;
-import webtest.pageboject.SendMassagePage;
-import webtest.pageboject.addressBookPage;
+import webtest.pageboject.*;
 
 import java.awt.*;
 import java.util.List;
@@ -23,6 +20,7 @@ public class weixintest {
     public static String title;
     public static String content;
     public static String addtionURL;
+    public static String picture;
     public static String summary;
     public static String author;
     private String js;
@@ -37,12 +35,13 @@ public class weixintest {
         accountID = "8833";
         phone = "13949135563";
         //设置消息群发参数
-        menber="王启";
-        title="消息群发测试title";
-        content="你有新的快递，请注意查收，取件请凭取件码。";
-        addtionURL="C:\\Users\\Administrator\\Desktop\\54310245.jpg";
-        summary="消息概要summary";
-        author="tester";
+        menber = "王启";
+        title = "消息群发测试title";
+        content = "你有新的快递，请注意查收，取件请凭取件码。";
+        addtionURL = "C:\\Users\\Administrator\\Desktop\\54310245.jpg";
+        picture = "C:\\Users\\Administrator\\Desktop\\54310245.jpg";
+        summary = "消息概要summary";
+        author = "tester";
 
 
     }
@@ -96,7 +95,20 @@ public class weixintest {
     public void sendmessage() throws InterruptedException {
         homepage.groupmessagesend();
         SendMassagePage sendMassagePage = new SendMassagePage();
-        sendMassagePage.sendmessage(menber, title, content, addtionURL, summary, author);
+        sendMassagePage.sendmessage(menber);
+        sendMassagePage.sendcontent(title, content, addtionURL, picture, summary, author);
+        sendMassagePage.confirmsend();
+
+    }
+@Test
+    //素材管理
+    public void sourcemanege() throws InterruptedException {
+        homepage.sourcemanege();
+        sourcelibrary sourcelibrary=new sourcelibrary();
+        //SendMassagePage sendMassagePage = new SendMassagePage();
+        sourcelibrary.sourcelocate();
+        sourcelibrary.sourcecontent(title, content, addtionURL, picture, summary, author);
+        sourcelibrary.userselect();
 
     }
     //js运行测试

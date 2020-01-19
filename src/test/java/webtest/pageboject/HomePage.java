@@ -19,14 +19,14 @@ public class HomePage extends CommonPage {
         chromeOptions.setCapability("pageLoadStrategy", "normal");
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chromedriver.exe");
         driver = new ChromeDriver(chromeOptions);
-       //很重要的一个隐式等待，全局的，创建一个driver对象就为改队形创建一个等待时间
+        //很重要的一个隐式等待，全局的，创建一个driver对象就为改队形创建一个等待时间
         driver.manage().timeouts().implicitlyWait(5L, TimeUnit.SECONDS);
         driver.get(URL);
         driver.manage().window().maximize();
         driver.findElement(By.linkText("企业登录")).click();
         System.out.println(driver.manage().getCookies());
-        driver.manage().addCookie(new Cookie("wwrtx.refid", "2590788570442807"));
-        driver.manage().addCookie(new Cookie("wwrtx.sid", "vz8lc5ZbIh9dARjpPCqf0aorho4rgKgAjrVovYo4tby_NZg6L4GRux_OCnIBBm3P"));
+        driver.manage().addCookie(new Cookie("wwrtx.refid", "25907885702757436"));
+        driver.manage().addCookie(new Cookie("wwrtx.sid", "vz8lc5ZbIh9dARjpPCqf0U0V0qmg4Y2VOKXAbs5TEaU5ZvgMC16QTUKAcYseSCk1"));
         //填坑1，添加cookies之后刷新页面才能登陆，没有该语句登陆不成功
         driver.navigate().refresh();
         return this;
@@ -63,13 +63,28 @@ public class HomePage extends CommonPage {
 
     //消息群发按钮
     public SendMassagePage groupmessagesend() {
-       // waituntilclicked(By.linkText("消息群发"), 5);
+        // waituntilclicked(By.linkText("消息群发"), 5);
         findElement(By.linkText("消息群发")).click();
         //findElement(By.cssSelector(".index_service_cnt_item_title")).click();
         return new SendMassagePage();
 
     }
 
+    //通讯录tab
+    public manegedepartment contactbook() {
+
+        findElement(By.linkText("通讯录")).click();
+       // findElement(By.id("menu_contacts")).click();
+        return new manegedepartment();
+    }
+
+
+    //管理工具tab
+    public sourcelibrary sourcemanege() {
+
+        findElement(By.linkText("管理工具")).click();
+        return new sourcelibrary();
+    }
 
 }
 
