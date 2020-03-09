@@ -33,7 +33,7 @@ public class TestUser {
     public void info() {
         User user = new User();
         user.get("seveniruby1564217505.480352").then()
-                .body("name", equalTo("seveniruby 1564912419.113182"));
+                .body("name", equalTo("name for testing"));
     }
 
     @Test
@@ -148,6 +148,8 @@ public class TestUser {
     static Stream<Arguments> deleteByParamsFromYamlData() {
 
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+
+        //生成一个代表List<HashMap>的类型，用于传递给readValue
         TypeReference<List<HashMap<String, Object>>> typeRef =
                 new TypeReference<List<HashMap<String, Object>>>() {
                 };
