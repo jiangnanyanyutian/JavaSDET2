@@ -49,6 +49,7 @@ public class BasePage {
     public static WebElement findElement(By by) {
         //todo: 递归是更好的
         //todo: 如果定位的元素是动态变化位置
+        //如果定位的元素动态变化位置，，，递归是最好的
 
         System.out.println(by);
         try {
@@ -82,6 +83,8 @@ public class BasePage {
         By tips = By.id("com.xueqiu.android:id/snb_tip_text");
         List<By> alertBoxs = new ArrayList<>();
         //todo: 不需要所有的都判断是否存在
+        //不需要所有的都判断是否存在
+
         alertBoxs.add(By.id("com.xueqiu.android:id/image_cancel"));
         alertBoxs.add(tips);
         alertBoxs.add(By.id("com.xueqiu.android:id/md_buttonDefaultNegative"));
@@ -134,6 +137,7 @@ public class BasePage {
     public void parseSteps(String method) {
 //        HashMap<String, List<HashMap<String, String>>> 可以取消steps的多余关键字
         //TODO: 参数化，把关键数据参数化到你的yaml中
+        //哈哈哈
 
         String path = "/" + this.getClass().getCanonicalName().replace('.', '/') + ".yaml";
         parseSteps(path, method);

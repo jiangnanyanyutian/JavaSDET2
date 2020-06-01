@@ -34,6 +34,7 @@ public class CommonPage {
         new WebDriverWait(driver, timeout).until(visibilityOfElementLocated(by));
     }
 
+
     public void waituntilclicked(By by, int timeout) {
 
         new WebDriverWait(driver, timeout).until(elementToBeClickable(by));
