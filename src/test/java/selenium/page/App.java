@@ -20,15 +20,15 @@ public class App extends BasePage {
         String url = "https://work.weixin.qq.com/";
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setCapability("pageLoadStrategy", "none");
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\zhicall\\AppData\\Local\\Google\\Chrome\\Application\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chromedriver.exe");
         driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(5L, TimeUnit.SECONDS);
         driver.get(url);
         driver.manage().window().maximize();
         driver.findElement(By.linkText("企业登录")).click();
         System.out.println(driver.manage().getCookies());
-        driver.manage().addCookie(new Cookie("wwrtx.refid", "25907885701910457"));
-        driver.manage().addCookie(new Cookie("wwrtx.sid", "vz8lc5ZbIh9dARjpPCqf0ZOW_X-Bb2T10ZOU9dcRY4f_1JTNXejtZ9NlHJN1bphD"));
+        driver.manage().addCookie(new Cookie("wwrtx.refid", "2590788570442807"));
+        driver.manage().addCookie(new Cookie("wwrtx.sid", "vz8lc5ZbIh9dARjpPCqf0TGucP2mTHvqYYHJlRGzU88IUhjjQbi2ZNszh-8S95dN"));
         driver.navigate().refresh();
         return this;
     }

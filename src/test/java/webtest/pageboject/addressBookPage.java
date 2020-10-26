@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class addressBookPage extends CommonPage {
-    //填写患者信息
+    //填写成员信息，添加成员
     public addressBookPage addmenberd(String name, String accountID, String phone) {
         findElement(By.name("username")).sendKeys(name);
         findElement(By.name("acctid")).sendKeys(accountID);
@@ -28,7 +28,7 @@ public class addressBookPage extends CommonPage {
         //并加上异常处理，如果搜索内容不为空才进行删除操作
 
         try {
-            waituntilclick(By.linkText("编辑"), 2);
+            waituntillocatedandclicked(By.linkText("编辑"), 2);
         } catch (Exception e) {
             System.out.println("not found");
             return this;

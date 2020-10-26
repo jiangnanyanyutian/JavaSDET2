@@ -23,7 +23,7 @@ public class CommonPage {
     }
 //封装隐式等待时间方法
 
-    public void waituntilclick(By by, int timeout) {
+    public void waituntillocatedandclicked(By by, int timeout) {
 
         new WebDriverWait(driver, timeout).until(visibilityOfElementLocated(by));
         new WebDriverWait(driver, timeout).until(elementToBeClickable(by));
@@ -32,11 +32,17 @@ public class CommonPage {
     public void waituntilvisiable(By by, int timeout) {
 
         new WebDriverWait(driver, timeout).until(visibilityOfElementLocated(by));
-           }
+    }
+
+
+    public void waituntilclicked(By by, int timeout) {
+
+        new WebDriverWait(driver, timeout).until(elementToBeClickable(by));
+    }
 
     //关闭浏览器
     public void close() throws InterruptedException {
- Thread.sleep(2000);
+        Thread.sleep(2000);
         driver.close();
     }
 }
