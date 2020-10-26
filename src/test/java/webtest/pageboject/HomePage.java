@@ -2,10 +2,7 @@ package webtest.pageboject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,14 +11,14 @@ public class HomePage extends CommonPage {
 
     public HomePage login() {
         String URL = "https://work.weixin.qq.com";
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get(URL);
         driver.manage().window().maximize();
         driver.findElement(By.linkText("企业登录")).click();
         System.out.println(driver.manage().getCookies());
-        driver.manage().addCookie(new Cookie("wwrtx.refid", "25907885701910457"));
-        driver.manage().addCookie(new Cookie("wwrtx.sid", "vz8lc5ZbIh9dARjpPCqf0ZOW_X-Bb2T10ZOU9dcRY4f_1JTNXejtZ9NlHJN1bphD"));
+        driver.manage().addCookie(new Cookie("wwrtx.refid", "13911327832556506"));
+        driver.manage().addCookie(new Cookie("wwrtx.sid", "vz8lc5ZbIh9dARjpPCqf0dl6jqyQbU1Uekt6wkUUa1N7EQxFLIOce7_7tgtR5FeV"));
         //填坑1，添加cookies之后刷新页面才能登陆，没有该语句登陆不成功
         driver.navigate().refresh();
         return this;
