@@ -114,20 +114,20 @@ public class BasePage {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
-    private static void handleAlertByPageSource() {
-        //todo: xpath匹配， 标记 定位
-        String xml = driver.getPageSource();
-        List<String> alertBoxs = new ArrayList<>();
-        alertBoxs.add("xxx");
-        alertBoxs.add("yyy");
-
-        alertBoxs.forEach(alert -> {
-            if (xml.contains(alert)) {
-                driver.findElement(By.id(alert)).click();
-            }
-        });
-
-    }
+//    private static void handleAlertByPageSource() {
+//        //todo: xpath匹配， 标记 定位
+//        String xml = driver.getPageSource();
+//        List<String> alertBoxs = new ArrayList<>();
+//        alertBoxs.add("xxx");
+//        alertBoxs.add("yyy");
+//
+//        alertBoxs.forEach(alert -> {
+//            if (xml.contains(alert)) {
+//                driver.findElement(By.id(alert)).click();
+//            }
+//        });
+//
+//    }
 
     public void parseSteps(){
         String method=Thread.currentThread().getStackTrace()[2].getMethodName();

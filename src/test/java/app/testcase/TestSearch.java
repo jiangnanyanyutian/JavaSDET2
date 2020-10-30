@@ -39,8 +39,8 @@ public class TestSearch {
         ObjectMapper mapper=new ObjectMapper(new YAMLFactory());
         String path="/"+TestSearch.class.getCanonicalName().replace('.', '/')+".yaml";
         Object[][] demo=mapper.readValue(
-                TestSearch.class.getResourceAsStream(path),
-                Object[][].class);
+                TestSearch.class.getResourceAsStream(path), Object[][].class);
+
         return Arrays.asList(demo);
     }
 
