@@ -13,10 +13,13 @@ public class departmenttestcase {
     public static String TOKEN;
     public static  String departmentname;
     public  static  int parentid;
+    public  static  int departmentID;
+
     @BeforeClass
     public static void setup(){
         TOKEN=gettoken.GETTOKEN();
          departmentname="智康财务";
+        departmentID=8888;
 
         parentid=1;
     }
@@ -32,6 +35,12 @@ public class departmenttestcase {
     @Test
     public void creatdepartment(){
         deparmentmanage.creatdepartment(TOKEN,departmentname,parentid).body().path("errmsg", String.valueOf(equalTo("created")));
+    }
+
+    @Test
+    public void deletedepartment(){
+
+        deparmentmanage.deletdepartment(TOKEN,departmentID).body().path("errcode",String.valueOf(0));
     }
 }
 

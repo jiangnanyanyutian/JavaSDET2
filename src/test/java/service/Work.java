@@ -18,8 +18,8 @@ public class Work {
     public String getToken() {
         if (token == null) {
             token = given()
-                    .param("corpid", "wwd6da61649bd66fea")
-                    .param("corpsecret", "C7uGOrNyxWWzwBsUyWEbLdbZBDrc71PNOhyQ_YYPhts")
+                    .param("corpid", "ww52704e1c31965178")
+                    .param("corpsecret", "e72EEX6tv6BwyN3mwaJGR0NeeMHsFb7qPnMFZ3Io36c")
                     .when()
                     .log().all()
                     .get("https://qyapi.weixin.qq.com/cgi-bin/gettoken")

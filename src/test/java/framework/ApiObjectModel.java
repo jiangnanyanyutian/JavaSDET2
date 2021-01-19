@@ -17,11 +17,9 @@ public class ApiObjectModel {
         return methods.get(method);
     }
 
-    public Response run(String method) {
-        return getMethod(method).run();
-    }
+    //public Response run(String method) { return getMethod(method).run(); }
 
-    public Response run(String method, HashMap<String, Object> params) {
+    public Response run(String method, HashMap<Object, Object> params) {
         return getMethod(method).run(params);
     }
 }

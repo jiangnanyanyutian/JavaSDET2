@@ -2,6 +2,24 @@ methods:
   get:
     query:
       userid: ${userid}
+
+
+    postBody:
+      name: ${name}
+      parentid: ${parentid}
+
     method: get
     url: https://qyapi.weixin.qq.com/cgi-bin/user/get
 
+
+
+  update:
+    query:
+
+
+    postBody:
+      userid: ${userid}
+      email: ${email}
+
+    method: post
+    url: https://qyapi.weixin.qq.com/cgi-bin/user/update
